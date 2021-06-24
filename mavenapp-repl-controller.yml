@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mavenapp-controller
+spec:
+  replicas: 3
+  selector:
+    app: mavenapp
+  template:
+    metadata:
+      labels:
+        app: mavenapp
+    spec:
+      containers:
+      - name: maven-demo
+        image: yasu1234shaik/mavenhelloworld
+        ports:
+        - name: java-port
+          containerPort: 3001
